@@ -44,4 +44,11 @@ public class TestDataBase implements Database {
         int randomIndex = randomizer.nextInt(items.size());
         return items.get(randomIndex);
     }
+
+    public String get(int seed) {
+        randomizer.setSeed(seed);
+        int randomIndex = randomizer.nextInt(items.size());
+        return items.get(randomIndex);
+    }
+
 }

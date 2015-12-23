@@ -1,0 +1,35 @@
+The capital of #c is:
+#n
+The capital of #c is #answer
+
+#N is well known for saying:
+#Q
+#answer is a quote by #N
+
+The current world record for most #n eaten is:
+#i
+How much #n do you think you could eat? Well guess again because the world record is #answer!
+
+The largest land #n is kept in what city?
+#c
+#answer is world famous for keeping the worlds largest #n in its local zoo.
+
+#n is often described as tasting #A:
+#a
+Top food critics cite #n as having a #A #answer flavour.
+
+The fastest #im dash was run in ___ seconds.
+#i
+One world record that has stood the test of time is the current #im dash record of #answer seconds.
+
+Name the planet furthest away from the sun in the #n system.
+#n
+Of all the planets in the #n system, #answer has the largest orbit.
+
+What did #N say before World War #i?
+#Q
+#N is widely considered to be the most iconic figure from World War #i, mostly attributed a single line from his battle speech: #answer
+
+"#n _____" is considered to be the most popular #n #n band.
+#n
+The band #n #answer has sold at least #i copies of each of their #i albums, making them the most popular #n #n band in history.

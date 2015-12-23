@@ -10,6 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.emmett.testday.model.databases.MainDataBase;
 import com.emmett.testday.model.databases.TestDataBase;
 
 /**
@@ -31,8 +32,11 @@ public class TestState implements GameState {
         Label.LabelStyle labelStyle = new Label.LabelStyle();
         labelStyle.font = font;
         labelStyle.fontColor = Color.BLACK;
-        TestDataBase data = new TestDataBase("databases/verbs.txt");
-        label = new Label(data.get(), labelStyle);
+        Label name = new Label("Please write your name: " + MainDataBase.getName(), labelStyle);
+        table.add(name).top().right();
+        table.row();
+        table.top();
+        label = new Label(MainDataBase.getNoun() + " " + MainDataBase.getNoun(), labelStyle);
         table.add(label).width(500);
         stage = new Stage(new FitViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight()));
         Gdx.input.setInputProcessor(stage);
@@ -44,7 +48,7 @@ public class TestState implements GameState {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
-                label.setText("clicked yo");
+                label.setText(MainDataBase.getNoun() + " " + MainDataBase.getNoun());
             }
         });
     }
