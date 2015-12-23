@@ -27,4 +27,8 @@ public class GameStateManager {
         currentState.create();
     }
 
+    public void resize(int x, int y) {
+        currentState.resize(x, y);
+    }
+
 }
