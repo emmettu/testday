@@ -6,4 +6,6 @@ package com.emmett.testday.states;
 public interface GameState {
     void display();
     void update();
+    void create();
+    void dispose();
 }

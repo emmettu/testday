@@ -7,8 +7,8 @@ import com.emmett.testday.Main;
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-		config.height = 640;
-		config.width = 360;
+		config.height = 700;
+		config.width = 600;
 		new LwjglApplication(new Main(), config);
 	}
 }
