@@ -5,6 +5,8 @@ import com.emmett.testday.model.databases.MainDataBase;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by eunderhi on 23/12/15.
@@ -21,8 +23,14 @@ public class Parser {
         databaseMap.put("#N", MainDataBase.names);
     }
 
-    public static String parse(String input) {
-        
-        return null;
+    public static String parseSingle(String input, String token) {
+        StringBuffer buffer = new StringBuffer();
+        Matcher matcher = Pattern.compile(token).matcher(input);
+        while(matcher.find()) {
+            matcher.appendReplacement(buffer, databaseMap.get(token).get());
+        }
+        matcher.appendTail(buffer);
+        return buffer.toString();
     }
+
 }

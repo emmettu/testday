@@ -12,6 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.emmett.testday.model.databases.MainDataBase;
 import com.emmett.testday.model.databases.TestDataBase;
+import com.emmett.testday.model.util.Parser;
 
 /**
  * Created by eunderhi on 23/12/15.
@@ -36,13 +37,14 @@ public class TestState implements GameState {
         table.add(name).top().right();
         table.row();
         table.top();
-        label = new Label(MainDataBase.getNoun() + " " + MainDataBase.getNoun(), labelStyle);
+        //label = new Label(MainDataBase.getNoun() + " " + MainDataBase.getNoun(), labelStyle);
+        label = new Label(Parser.parseSingle("I really like #n #n", "#n"), labelStyle);
         table.add(label).width(500);
         stage = new Stage(new FitViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight()));
         Gdx.input.setInputProcessor(stage);
         stage.getViewport().apply();
         stage.addActor(table);
-        font.getWrappedBounds(label.getText(), label.getWidth());
+        //font.getWrappedBounds(label.getText(), label.getWidth());
         label.setWrap(true);
         label.addListener(new ClickListener() {
             @Override
