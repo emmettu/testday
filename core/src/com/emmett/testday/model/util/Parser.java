@@ -23,6 +23,13 @@ public class Parser {
         databaseMap.put("#N", MainDataBase.names);
     }
 
+    public static String parseAll(String input) {
+        for(String token : databaseMap.keySet()) {
+            input = parseSingle(input, token);
+        }
+        return input;
+    }
+
     public static String parseSingle(String input, String token) {
         StringBuffer buffer = new StringBuffer();
         Matcher matcher = Pattern.compile(token).matcher(input);
