@@ -15,6 +15,7 @@ public class Question {
     private String correctAnswer;
     private String textBookSnippet;
     private String question;
+    private String answer = null;
 
     public Question(String...questionData) {
         question = questionData[0];
@@ -24,7 +25,7 @@ public class Question {
     }
 
     private List<String> getAnswers(String inputToken) {
-        List<String> answers = new ArrayList<>();
+        List<String> answers = new ArrayList<String>();
         for(int i = 0; i < 4; i++) {
             answers.add(Parser.parseAll(inputToken));
         }
@@ -58,6 +59,14 @@ public class Question {
 
     public String getTextBookSnippet() {
         return textBookSnippet;
+    }
+
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
     }
 
 }

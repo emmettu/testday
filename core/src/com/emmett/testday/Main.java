@@ -1,9 +1,9 @@
 package com.emmett.testday;
 
 import com.badlogic.gdx.ApplicationAdapter;
+import com.emmett.testday.model.question.QuestionPool;
+import com.emmett.testday.states.ExamState;
 import com.emmett.testday.states.GameStateManager;
-import com.emmett.testday.states.TableTestState;
-import com.emmett.testday.states.TestState;
 
 public class Main extends ApplicationAdapter {
 
@@ -11,7 +11,7 @@ public class Main extends ApplicationAdapter {
 
 	@Override
 	public void create () {
-		manager = new GameStateManager(new TestState());
+		manager = new GameStateManager(new ExamState(new QuestionPool()));
 		//manager = new GameStateManager(new TableTestState());
 
 	}

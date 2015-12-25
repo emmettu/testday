@@ -3,6 +3,7 @@ package com.emmett.testday.model.util;
 import com.emmett.testday.model.databases.Database;
 import com.emmett.testday.model.databases.MainDataBase;
 
+import javax.xml.crypto.Data;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -17,12 +18,13 @@ public class Parser {
 
     static {
         databaseMap = new HashMap<String, Database>();
-        databaseMap.put("#q", MainDataBase.quotes);
         databaseMap.put("#n", MainDataBase.nouns);
         databaseMap.put("#v", MainDataBase.verbs);
         databaseMap.put("#N", MainDataBase.names);
         databaseMap.put("#a", MainDataBase.adjectives);
         databaseMap.put("#Q", MainDataBase.quotes);
+        databaseMap.put("#i", MainDataBase.numbers);
+        databaseMap.put("#c", MainDataBase.locations);
     }
 
     public static String parseAll(String input) {

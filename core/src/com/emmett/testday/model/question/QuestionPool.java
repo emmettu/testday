@@ -11,12 +11,12 @@ import java.util.List;
  */
 public class QuestionPool {
 
-    List<Question> questions = new ArrayList<>();
+    List<Question> questions = new ArrayList<Question>();
 
     public QuestionPool() {
         FileHandle handle = Gdx.files.internal("databases/questions.txt");
         String[] questionRaws = handle.readString().split("\n");
-        for(int i = 0; i < questionRaws.length - 3; i += 3) {
+        for(int i = 0; i < questionRaws.length - 2; i += 3) {
             Question question = new Question(questionRaws[i], questionRaws[i + 1], questionRaws[i + 2]);
             questions.add(question);
         }

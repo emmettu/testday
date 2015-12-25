@@ -22,7 +22,7 @@ import com.emmett.testday.model.util.Parser;
  */
 public class TestState implements GameState {
 
-    BitmapFont font;
+    BitmapFont font = new BitmapFont();
     Label label;
     Stage stage;
 
@@ -53,6 +53,7 @@ public class TestState implements GameState {
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
                 label.setText(MainDataBase.getNoun() + " " + MainDataBase.getNoun());
+                label.getStyle().fontColor = Color.RED;
             }
         });
         stage.addListener(new InputListener() {
@@ -66,13 +67,14 @@ public class TestState implements GameState {
             }
         });
         QuestionPool pool = new QuestionPool();
-        System.out.println(pool.getQuestions().get(1).getQuestion());
-        System.out.println("a. " + pool.getQuestions().get(1).getAnswers().get(0));
-        System.out.println("b. " + pool.getQuestions().get(1).getAnswers().get(1));
-        System.out.println("c. " + pool.getQuestions().get(1).getAnswers().get(2));
-        System.out.println("d. " + pool.getQuestions().get(1).getAnswers().get(3));
-        System.out.println(pool.getQuestions().get(1).getTextBookSnippet());
-        System.out.println(pool.getQuestions().get(1).getCorrectAnswer());
+        int num = 3;
+        System.out.println(pool.getQuestions().get(num).getQuestion());
+        System.out.println("a. " + pool.getQuestions().get(num).getAnswers().get(0));
+        System.out.println("b. " + pool.getQuestions().get(num).getAnswers().get(1));
+        System.out.println("c. " + pool.getQuestions().get(num).getAnswers().get(2));
+        System.out.println("d. " + pool.getQuestions().get(num).getAnswers().get(3));
+        System.out.println(pool.getQuestions().get(num).getTextBookSnippet());
+        System.out.println(pool.getQuestions().get(num).getCorrectAnswer());
     }
 
     @Override
@@ -97,6 +99,11 @@ public class TestState implements GameState {
     @Override
     public void resize(int x, int y) {
         stage.getViewport().update(x, y, true);
+    }
+
+    @Override
+    public void next() {
+
     }
 
 }

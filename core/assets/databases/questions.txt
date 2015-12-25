@@ -34,9 +34,9 @@ The mascot of Canada's #v team is "#a _____".
 The periodic table of #n was created in what year?
 #i
 Many will remember the year @answer, the year that the periodic table of #n was created.
-What year was did the movie "#v #a #n" released?
+What year was the movie "#v #a #n" released?
 #i
 Movie critics everywhere went crazy for the @answer movie "#v #a #n".
 What is the most recently extinct animal?
-#The Eastern #c #n
-Biologists recently mourned the last @answer. It was hunted by illegal poaches despite preservation efforts.
+the Eastern #c #n
+Biologists recently mourned the last of @answer. It was hunted by illegal poaches despite preservation efforts.

@@ -73,4 +73,9 @@ public class TableTestState implements GameState {
     public void resize(int x, int y) {
 
     }
+
+    @Override
+    public void next() {
+
+    }
 }
