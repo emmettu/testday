@@ -55,7 +55,7 @@ public class GradingState implements GameState {
         table.row();
         table.add(new Label("You got " + percentString + " percent", style)).width(500);
         table.row();
-        if(percent <= 50) {
+        if(percent < 50) {
             table.add(new Label("Congrats you failed. Merry Christmas.", style)).width(500);
         }
         else {
