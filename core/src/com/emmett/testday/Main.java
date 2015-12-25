@@ -35,19 +35,25 @@ public class Main extends ApplicationAdapter {
             }
         });
 
-		//manager = new GameStateManager(new ExamState(new QuestionPool(), stage));
         QuestionPool pool = new QuestionPool();
+        pool.shuffle();
         TextBookState bookState = new TextBookState(pool, stage);
         ExamState examState = new ExamState(pool, stage);
+        ExamState examState2 = new ExamState(pool, stage);
+        examState2.second = true;
         GradingState grades = new GradingState(pool, stage);
-        manager.setCurrentState(bookState);
+        TitleScreen title = new TitleScreen(stage);
+        title.nextState = bookState;
         examState.manager = manager;
+        examState2.manager = manager;
         bookState.nextState = examState;
         bookState.manager = manager;
-        examState.nextState = grades;
+        examState.nextState = examState2;
+        examState2.nextState = grades;
+        grades.nextState = bookState;
 
         manager = new GameStateManager();
-        manager.setCurrentState(bookState);
+        manager.setCurrentState(title);
 
 	}
 

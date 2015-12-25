@@ -10,9 +10,9 @@ How much #n do you think you could eat? Well guess again because the world recor
 The largest land #n is kept in what city?
 #c
 @answer is world famous for keeping the worlds largest #n in its local zoo.
-#n is often described as tasting #A:
+#n is often described as tasting #a:
 #a
-Top food critics cite #n as having a #A @answer flavour.
+Top food critics cite #n as having a @answer flavour.
 The fastest #im dash was run in ___ seconds.
 #i
 One world record that has stood the test of time is the current #im dash record of @answer seconds.

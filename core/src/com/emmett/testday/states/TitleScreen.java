@@ -1,6 +1,5 @@
 package com.emmett.testday.states;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Color;
@@ -12,26 +11,38 @@ import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.emmett.testday.model.databases.MainDataBase;
 import com.emmett.testday.model.question.Question;
 import com.emmett.testday.model.question.QuestionPool;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by emmett on 25/12/15.
  */
-public class TextBookState implements GameState {
-
+public class TitleScreen implements GameState {
     Stage stage;
-    QuestionPool pool;
     public ExamState nextPage = null;
     public ExamState previousPage = null;
     public GameStateManager manager;
     public GameState nextState = null;
     public Label.LabelStyle style;
 
-    public TextBookState(QuestionPool pool, Stage stage) {
+    String TITLE_PHRASE = "Hi welcome to this year's Secret Santa Game." +
+            "You play someone taking a quiz in an alternate Universe where things are" +
+            " completely different from the reality that you have come to know. So obviously" +
+            " you're wondering how you can possibly pass this quiz? No worries! There's a short one" +
+            " page study guide to help you through it that's shown to you before the quiz. Simply hit enter" +
+            " to go to the study guide, then hit enter to go to the quiz etc. etc. It's multiple choice so you" +
+            " just click on the potential answers that you think are right. There's two pages so hit enter to" +
+            " go to the second page once you're done with the first one. Then hit enter to submit it and see your" +
+            " marks! Good luck.";
+
+    public TitleScreen(Stage stage) {
         this.stage = stage;
-        this.pool = pool;
         style = new Label.LabelStyle();
         style.font = new BitmapFont();
         style.fontColor = Color.BLACK;
@@ -42,21 +53,16 @@ public class TextBookState implements GameState {
         for(Actor actor : stage.getActors()) {
             actor.remove();
         }
+
         Table table = new Table();
+
+        Label label = new Label(TITLE_PHRASE, style);
+        label.setWrap(true);
+        table.add(label).width(500);
         table.setFillParent(true);
-        table.row();
-
-        for(int i = 0; i < 8; i++) {
-            Question question = pool.getQuestions().get(i);
-            Label label = new Label(question.getTextBookSnippet(), style);
-            label.setWrap(true);
-            table.add(label).width(500);
-            table.row();
-        }
-
         stage.addActor(table);
-        pool.shuffle();
     }
+
 
     @Override
     public void display() {
@@ -74,7 +80,7 @@ public class TextBookState implements GameState {
 
     @Override
     public void dispose() {
-        stage.dispose();
+
     }
 
     @Override

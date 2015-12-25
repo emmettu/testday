@@ -12,7 +12,6 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.emmett.testday.model.databases.MainDataBase;
 import com.emmett.testday.model.question.Question;
 import com.emmett.testday.model.question.QuestionPool;
@@ -34,6 +33,7 @@ public class ExamState implements GameState {
     public GameStateManager manager;
     public GameState nextState = null;
     public Label.LabelStyle style;
+    public boolean second = false;
 
     public ExamState(QuestionPool pool, Stage stage) {
         this.stage = stage;
@@ -54,10 +54,19 @@ public class ExamState implements GameState {
         }
         Table table = new Table();
         table.setFillParent(true);
-        table.add(new Label("Name: " + MainDataBase.getName(), style)).top().right();
-        table.row();
+        if(!second) {
+            table.add(new Label("Name: " + MainDataBase.getName(), style)).top().right();
+            table.row();
+        }
 
-        for(int i = 0; i < 4; i++) {
+        int i = 0;
+        int max = 4;
+        if(second) {
+            i = 4;
+            max = 8;
+        }
+
+        for(; i < max; i++) {
             Question question = pool.getQuestions().get(i);
             String questionString = question.getQuestion();
             table.add(new Label(String.valueOf(i + 1) + ". "+questionString, style)).width(500).left();
