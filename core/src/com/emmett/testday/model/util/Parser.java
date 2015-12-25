@@ -22,6 +22,7 @@ public class Parser {
         databaseMap.put("#v", MainDataBase.verbs);
         databaseMap.put("#N", MainDataBase.names);
         databaseMap.put("#a", MainDataBase.adjectives);
+        databaseMap.put("#Q", MainDataBase.quotes);
     }
 
     public static String parseAll(String input) {
@@ -39,6 +40,24 @@ public class Parser {
         }
         matcher.appendTail(buffer);
         return buffer.toString();
+    }
+
+    public static String[] parseQuestionAndTextBook(String question, String textBook) {
+        String[] items = new String[2];
+        for(String token : databaseMap.keySet()) {
+            StringBuffer buffer = new StringBuffer();
+            Matcher matcher = Pattern.compile(token).matcher(question);
+            while(matcher.find()) {
+                String replacement = databaseMap.get(token).get();
+                matcher.appendReplacement(buffer, replacement);
+                textBook = textBook.replace(token, replacement);
+            }
+            matcher.appendTail(buffer);
+            question = buffer.toString();
+        }
+        items[0] = question;
+        items[1] = textBook;
+        return items;
     }
 
 }

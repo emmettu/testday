@@ -1,44 +1,42 @@
 The capital of #c is:
 #n
-The capital of #c is #answer
-
+The capital of #c is @answer
 #N is well known for saying:
 #Q
-#answer is a quote by #N
-
+@answer is a quote by #N
 The current world record for most #n eaten is:
 #i
-How much #n do you think you could eat? Well guess again because the world record is #answer!
-
+How much #n do you think you could eat? Well guess again because the world record is @answer!
 The largest land #n is kept in what city?
 #c
-#answer is world famous for keeping the worlds largest #n in its local zoo.
-
+@answer is world famous for keeping the worlds largest #n in its local zoo.
 #n is often described as tasting #A:
 #a
-Top food critics cite #n as having a #A #answer flavour.
-
+Top food critics cite #n as having a #A @answer flavour.
 The fastest #im dash was run in ___ seconds.
 #i
-One world record that has stood the test of time is the current #im dash record of #answer seconds.
-
+One world record that has stood the test of time is the current #im dash record of @answer seconds.
 Name the planet furthest away from the sun in the #n system.
 #n
-Of all the planets in the #n system, #answer has the largest orbit.
-
+Of all the planets in the #n system, @answer has the largest orbit.
 What did #N say before World War #i?
 #Q
-#N is widely considered to be the most iconic figure from World War #i, mostly attributed a single line from his battle speech: #answer
-
+#N is widely considered to be the most iconic figure from World War #i, mostly attributed a single line from his battle speech: @answer
 "#n _____" is considered to be the most popular #n #n band.
 #n
-The band #n #answer has sold at least #i copies of each of their #i albums, making them the most popular #n #n band in history.
-
+The band #n @answer has sold at least #i copies of each of their #i albums, making them the most popular #n #n band in history.
 #N's favourite dish was #n _____:
 #n
-You might not believe it but #N ate #n #answer every single day!
-
+You might not believe it but #N ate #n @answer every single day!
 The mascot of Canada's #v team is "#a _____".
 #n
-#n teams all over the world are probably jealous of Canada's beloved #a #answer mascot.
-
+#n teams all over the world are probably jealous of Canada's beloved #a @answer mascot.
+The periodic table of #n was created in what year?
+#i
+Many will remember the year @answer, the year that the periodic table of #n was created.
+What year was did the movie "#v #a #n" released?
+#i
+Movie critics everywhere went crazy for the @answer movie "#v #a #n".
+What is the most recently extinct animal?
+#The Eastern #c #n
+Biologists recently mourned the last @answer. It was hunted by illegal poaches despite preservation efforts.

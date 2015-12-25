@@ -13,10 +13,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.emmett.testday.model.databases.MainDataBase;
-import com.emmett.testday.model.databases.TestDataBase;
+import com.emmett.testday.model.question.QuestionPool;
 import com.emmett.testday.model.util.Parser;
-
-import java.util.EventListener;
 
 /**
  * Created by eunderhi on 23/12/15.
@@ -42,7 +40,7 @@ public class TestState implements GameState {
         table.row();
         table.top();
         //label = new Label(MainDataBase.getNoun() + " " + MainDataBase.getNoun(), labelStyle);
-        label = new Label(Parser.parseAll("#N really likes to #v #a #ns"), labelStyle);
+        label = new Label(Parser.parseAll("#N really likes to #v a #a #n"), labelStyle);
         table.add(label).width(500);
         stage = new Stage(new FitViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight()));
         Gdx.input.setInputProcessor(stage);
@@ -67,6 +65,14 @@ public class TestState implements GameState {
                 return false;
             }
         });
+        QuestionPool pool = new QuestionPool();
+        System.out.println(pool.getQuestions().get(1).getQuestion());
+        System.out.println("a. " + pool.getQuestions().get(1).getAnswers().get(0));
+        System.out.println("b. " + pool.getQuestions().get(1).getAnswers().get(1));
+        System.out.println("c. " + pool.getQuestions().get(1).getAnswers().get(2));
+        System.out.println("d. " + pool.getQuestions().get(1).getAnswers().get(3));
+        System.out.println(pool.getQuestions().get(1).getTextBookSnippet());
+        System.out.println(pool.getQuestions().get(1).getCorrectAnswer());
     }
 
     @Override
