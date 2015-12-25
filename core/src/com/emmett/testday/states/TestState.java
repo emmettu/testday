@@ -38,7 +38,7 @@ public class TestState implements GameState {
         table.row();
         table.top();
         //label = new Label(MainDataBase.getNoun() + " " + MainDataBase.getNoun(), labelStyle);
-        label = new Label(Parser.parseSingle("I really like #n #n", "#n"), labelStyle);
+        label = new Label(Parser.parseSingle("I really like #N #N", "#N"), labelStyle);
         table.add(label).width(500);
         stage = new Stage(new FitViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight()));
         Gdx.input.setInputProcessor(stage);

@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -16,7 +17,7 @@ import java.util.Random;
  */
 public class TestDataBase implements Database {
 
-    private List<String> items = new ArrayList<String>();
+    private String[] items;
     Random randomizer = new Random();
 
     public TestDataBase(String filePath) {
@@ -26,29 +27,19 @@ public class TestDataBase implements Database {
     @Override
     public void load(String filePath) {
         FileHandle handle = Gdx.files.internal(filePath);
-        File file = handle.file();
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(file));
-            String line;
-            while((line = br.readLine()) != null) {
-                items.add(line);
-            }
-        }
-        catch(IOException e) {
-            e.printStackTrace();
-        }
+        items = handle.readString().split("\n");
     }
 
     @Override
     public String get() {
-        int randomIndex = randomizer.nextInt(items.size());
-        return items.get(randomIndex);
+        int randomIndex = randomizer.nextInt(items.length);
+        return items[randomIndex];
     }
 
     public String get(int seed) {
         randomizer.setSeed(seed);
-        int randomIndex = randomizer.nextInt(items.size());
-        return items.get(randomIndex);
+        int randomIndex = randomizer.nextInt(items.length);
+        return items[randomIndex];
     }
 
 }

@@ -33,3 +33,12 @@ What did #N say before World War #i?
 "#n _____" is considered to be the most popular #n #n band.
 #n
 The band #n #answer has sold at least #i copies of each of their #i albums, making them the most popular #n #n band in history.
+
+#N's favourite dish was #n _____:
+#n
+You might not believe it but #N ate #n #answer every single day!
+
+The mascot of Canada's #v team is "#a _____".
+#n
+#n teams all over the world are probably jealous of Canada's beloved #a #answer mascot.
+
