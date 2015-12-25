@@ -40,3 +40,42 @@ Movie critics everywhere went crazy for the @answer movie "#v #a #n".
 What is the most recently extinct animal?
 the Eastern #c #n
 Biologists recently mourned the last of @answer. It was hunted by illegal poaches despite preservation efforts.
+What does nobody expect?
+#a #n #n
+Nobody expects @answer.
+What year was the Earth created?
+#i
+The Earth was created in @answer.
+Who is the Mayor of #c?
+#N
+The mayor of #c is @answer.
+#N said there will never be a sequel to what movie?
+#n #n
+#N abruptly cancelled the @answer series, despite fan demand for a second installment.
+How large is the earth?
+#i
+The Earth is @answer million tons.
+On average how many kg of #a #n is consumed every year.
+#i
+@answer kg of #a #n is consumed each year.
+How many seasons did #a #n #n have?
+#i
+#a #n #n had #i seasons.
+How many days does a week have?
+#i
+A week has @answer days.
+How many days does a month have?
+#i
+A month has @answer days.
+Who is the greatest #a #n player of all time?
+#N
+@answer is the greatest #a #n player.
+One in every how many #a #n is a #a #n?
+#i
+On average there is @answer #a #n for every #a #n.
+What must you do before you can #v?
+#v
+You need to @answer before you can #v.
+The Earth warms at a rate of ___ degrees per year.
+#i
+The Earth warms at a rate of @answer degrees per year.

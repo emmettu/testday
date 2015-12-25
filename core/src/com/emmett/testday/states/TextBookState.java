@@ -46,7 +46,7 @@ public class TextBookState implements GameState {
         table.setFillParent(true);
         table.row();
 
-        for(int i = 0; i < 8; i++) {
+        for(int i = 0; i < 12; i++) {
             Question question = pool.getQuestions().get(i);
             Label label = new Label(question.getTextBookSnippet(), style);
             label.setWrap(true);

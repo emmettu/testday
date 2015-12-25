@@ -33,7 +33,7 @@ public class ExamState implements GameState {
     public GameStateManager manager;
     public GameState nextState = null;
     public Label.LabelStyle style;
-    public boolean second = false;
+    public int order = 0;
 
     public ExamState(QuestionPool pool, Stage stage) {
         this.stage = stage;
@@ -54,19 +54,13 @@ public class ExamState implements GameState {
         }
         Table table = new Table();
         table.setFillParent(true);
-        if(!second) {
+        if(order == 0) {
             table.add(new Label("Name: " + MainDataBase.getName(), style)).top().right();
             table.row();
         }
 
-        int i = 0;
-        int max = 4;
-        if(second) {
-            i = 4;
-            max = 8;
-        }
 
-        for(; i < max; i++) {
+        for(int i = order * 4; i < order * 4 + 4; i++) {
             Question question = pool.getQuestions().get(i);
             String questionString = question.getQuestion();
             table.add(new Label(String.valueOf(i + 1) + ". "+questionString, style)).width(500).left();
@@ -107,7 +101,7 @@ public class ExamState implements GameState {
                 super.clicked(event, x, y);
                 Question theQuestion = (Question) label.getUserObject();
                 theQuestion.setAnswer(label.getText().substring(5));
-                System.out.println(theQuestion.getAnswer().equals(theQuestion.getCorrectAnswer()));
+                //System.out.println(theQuestion.getAnswer().equals(theQuestion.getCorrectAnswer()));
                 answerLabel.setText("answer: " + theQuestion.getAnswer());
             }
         });

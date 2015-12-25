@@ -13,7 +13,7 @@ import java.util.Random;
 public class QuestionPool {
 
     List<Question> questions = new ArrayList<Question>();
-    public static final int QUESTION_NUM = 8;
+    public static final int QUESTION_NUM = 12;
 
     public QuestionPool() {
         FileHandle handle = Gdx.files.internal("databases/questions.txt");

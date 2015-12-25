@@ -40,16 +40,20 @@ public class Main extends ApplicationAdapter {
         TextBookState bookState = new TextBookState(pool, stage);
         ExamState examState = new ExamState(pool, stage);
         ExamState examState2 = new ExamState(pool, stage);
-        examState2.second = true;
+        ExamState examState3 = new ExamState(pool, stage);
+        examState2.order = 1;
+        examState3.order = 2;
         GradingState grades = new GradingState(pool, stage);
         TitleScreen title = new TitleScreen(stage);
         title.nextState = bookState;
         examState.manager = manager;
         examState2.manager = manager;
+        examState3.manager = manager;
         bookState.nextState = examState;
         bookState.manager = manager;
         examState.nextState = examState2;
-        examState2.nextState = grades;
+        examState2.nextState = examState3;
+        examState3.nextState = grades;
         grades.nextState = bookState;
 
         manager = new GameStateManager();

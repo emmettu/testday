@@ -52,7 +52,7 @@ public class Parser {
             while(matcher.find()) {
                 String replacement = databaseMap.get(token).get();
                 matcher.appendReplacement(buffer, replacement);
-                textBook = textBook.replace(token, replacement);
+                textBook = textBook.replaceFirst(token, replacement);
             }
             matcher.appendTail(buffer);
             question = buffer.toString();
