@@ -1,5 +1,6 @@
 package com.emmett.testday.states;
 
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Color;
@@ -102,8 +103,8 @@ public class TestState implements GameState {
     }
 
     @Override
-    public void next() {
-
+    public GameState next() {
+        return null;
     }
 
 }

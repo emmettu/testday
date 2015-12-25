@@ -9,5 +9,5 @@ public interface GameState {
     void update();
     void dispose();
     void resize(int x, int y);
-    void next();
+    GameState next();
 }

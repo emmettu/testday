@@ -5,7 +5,9 @@ package com.emmett.testday.states;
  */
 public class GameStateManager {
 
-    private GameState currentState;
+    public GameState currentState;
+
+    public GameStateManager() {}
 
     public GameStateManager(GameState initialState) {
         currentState = initialState;
@@ -21,10 +23,10 @@ public class GameStateManager {
         currentState.create();
     }
 
-    public void setCurrentState(GameState currentState) {
-        this.currentState.dispose();
-        this.currentState = currentState;
-        currentState.create();
+    public void setCurrentState(GameState newState) {
+        //this.currentState.dispose();
+        newState.create();
+        currentState = newState;
     }
 
     public void resize(int x, int y) {

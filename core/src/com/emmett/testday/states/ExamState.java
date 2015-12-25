@@ -5,6 +5,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -31,7 +32,7 @@ public class ExamState implements GameState {
     public ExamState nextPage = null;
     public ExamState previousPage = null;
     public GameStateManager manager;
-    public GameState nextState;
+    public GameState nextState = null;
     public Label.LabelStyle style;
 
     public ExamState(QuestionPool pool, Stage stage) {
@@ -48,7 +49,9 @@ public class ExamState implements GameState {
 
     @Override
     public void create() {
-        stage.clear();
+        for(Actor actor : stage.getActors()) {
+            actor.remove();
+        }
         Table table = new Table();
         table.setFillParent(true);
         table.add(new Label("Name: " + MainDataBase.getName(), style)).top().right();
@@ -73,6 +76,9 @@ public class ExamState implements GameState {
             @Override
             public boolean keyDown(InputEvent event, int keycode) {
                 if(keycode == Input.Keys.ENTER) {
+                    if(nextState != null) {
+                        manager.setCurrentState(nextState);
+                    }
                     return true;
                 }
                 return false;
@@ -133,8 +139,8 @@ public class ExamState implements GameState {
     }
 
     @Override
-    public void next() {
-        manager.setCurrentState(nextState);
+    public GameState next() {
+        return nextState;
     }
 
     public void nextPage() {
