@@ -1,10 +1,12 @@
 package com.emmett.testday.states;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
@@ -13,6 +15,8 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.emmett.testday.model.databases.MainDataBase;
 import com.emmett.testday.model.databases.TestDataBase;
 import com.emmett.testday.model.util.Parser;
+
+import java.util.EventListener;
 
 /**
  * Created by eunderhi on 23/12/15.
@@ -38,7 +42,7 @@ public class TestState implements GameState {
         table.row();
         table.top();
         //label = new Label(MainDataBase.getNoun() + " " + MainDataBase.getNoun(), labelStyle);
-        label = new Label(Parser.parseAll("#N really likes to #v #n #ns"), labelStyle);
+        label = new Label(Parser.parseAll("#N really likes to #v #a #ns"), labelStyle);
         table.add(label).width(500);
         stage = new Stage(new FitViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight()));
         Gdx.input.setInputProcessor(stage);
@@ -51,6 +55,16 @@ public class TestState implements GameState {
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
                 label.setText(MainDataBase.getNoun() + " " + MainDataBase.getNoun());
+            }
+        });
+        stage.addListener(new InputListener() {
+            @Override
+            public boolean keyDown(InputEvent event, int keycode) {
+                if(keycode == Input.Keys.ENTER) {
+                    System.out.println("OH DUDE YOU PRESSED ENTER.");
+                    return true;
+                }
+                return false;
             }
         });
     }

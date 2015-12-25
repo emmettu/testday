@@ -21,6 +21,7 @@ public class Parser {
         databaseMap.put("#n", MainDataBase.nouns);
         databaseMap.put("#v", MainDataBase.verbs);
         databaseMap.put("#N", MainDataBase.names);
+        databaseMap.put("#a", MainDataBase.adjectives);
     }
 
     public static String parseAll(String input) {

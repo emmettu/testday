@@ -9,12 +9,14 @@ public class MainDataBase {
     public static TestDataBase nouns;
     public static TestDataBase verbs;
     public static TestDataBase names;
+    public static TestDataBase adjectives;
 
     static {
         quotes = new TestDataBase("databases/quotes.txt");
         nouns = new TestDataBase("databases/nouns.txt");
         verbs = new TestDataBase("databases/verbs.txt");
         names = new TestDataBase("databases/names.txt");
+        adjectives = new TestDataBase("databases/adjectives.txt");
     }
 
     public static String getName() {
