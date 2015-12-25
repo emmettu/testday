@@ -10,7 +10,9 @@ import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.emmett.testday.model.databases.MainDataBase;
 import com.emmett.testday.model.question.Question;
 import com.emmett.testday.model.question.QuestionPool;
 
@@ -26,23 +28,31 @@ public class ExamState implements GameState {
     Stage stage;
     QuestionPool pool;
     Map<Integer, String> numToLetter = new HashMap<Integer, String>();
+    public ExamState nextPage = null;
+    public ExamState previousPage = null;
+    public GameStateManager manager;
+    public GameState nextState;
+    public Label.LabelStyle style;
 
-    public ExamState(QuestionPool pool) {
+    public ExamState(QuestionPool pool, Stage stage) {
+        this.stage = stage;
         this.pool = pool;
         numToLetter.put(0, "a");
         numToLetter.put(1, "b");
         numToLetter.put(2, "c");
         numToLetter.put(3, "d");
+        style = new Label.LabelStyle();
+        style.font = new BitmapFont();
+        style.fontColor = Color.BLACK;
     }
 
     @Override
     public void create() {
-        Label.LabelStyle style = new Label.LabelStyle();
-        style.font = new BitmapFont();
-        style.fontColor = Color.BLACK;
+        stage.clear();
         Table table = new Table();
         table.setFillParent(true);
-        table.setDebug(true);
+        table.add(new Label("Name: " + MainDataBase.getName(), style)).top().right();
+        table.row();
 
         for(int i = 0; i < 4; i++) {
             Question question = pool.getQuestions().get(i);
@@ -50,29 +60,52 @@ public class ExamState implements GameState {
             table.add(new Label(String.valueOf(i + 1) + ". "+questionString, style)).width(500).left();
             table.row();
             List<String> answers = question.getAnswers();
+            final Label answerLabel = new Label("answer: " , style);
             for(int j = 0; j < answers.size(); j++) {
-                table.add(new Label("  " + numToLetter.get(j) + ". " + answers.get(j), style)).width(500).left();
-                table.row();
+                addAnswer(answers.get(j), table, j, question, answerLabel);
             }
+            table.add(answerLabel);
             table.add(new Label(" ", style)).left();
             table.row();
         }
-
-        stage = new Stage(new FitViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight()));
-        Gdx.input.setInputProcessor(stage);
-        stage.getViewport().apply();
-        stage.addActor(table);
 
         stage.addListener(new InputListener() {
             @Override
             public boolean keyDown(InputEvent event, int keycode) {
                 if(keycode == Input.Keys.ENTER) {
-                    System.out.println("OH DUDE YOU PRESSED ENTER.");
                     return true;
                 }
                 return false;
             }
         });
+        stage.addActor(table);
+    }
+
+    private void addAnswer(String answer, Table table, int j, Question question, final Label answerLabel) {
+        final Label label = new Label("  " + numToLetter.get(j) + ". " + answer, style);
+
+        label.setUserObject(question);
+
+        label.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                super.clicked(event, x, y);
+                Question theQuestion = (Question) label.getUserObject();
+                theQuestion.setAnswer(label.getText().substring(5));
+                System.out.println(theQuestion.getAnswer().equals(theQuestion.getCorrectAnswer()));
+                answerLabel.setText("answer: " + theQuestion.getAnswer());
+            }
+        });
+
+        table.add(label).width(500).left();
+        table.row();
+    }
+
+    private String getAnswer(Question question) {
+        if(question.getAnswer() == null) {
+            return "";
+        }
+        return question.getAnswer();
     }
 
     @Override
@@ -101,7 +134,19 @@ public class ExamState implements GameState {
 
     @Override
     public void next() {
+        manager.setCurrentState(nextState);
+    }
 
+    public void nextPage() {
+        if(nextPage != null) {
+            manager.setCurrentState(nextPage);
+        }
+    }
+
+    public void previousPage() {
+        if(previousPage != null) {
+            manager.setCurrentState(previousPage);
+        }
     }
 
 }
